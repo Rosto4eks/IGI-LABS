@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="header">
+        <a href="/about">about</a>
+        <a href="/news">news</a>
+        <a href="/faq">faq</a>
+        <a href="/contacts">contacts</a>
+        <a href="/policy">policy</a>
+        <a href="/vacancies">vacancies</a>
+        <a href="/reviews">reviews</a>
+        <a href="/promo">promo</a>
+    </div>
+    <div class="pizzas">
+        {% for pizza, count in cart.items %}
+            <a class="pizza" href="remove-from-cart?id={{ pizza.id }}">
+                <div class="pizza_data">
+                    <div class="pizza_price">{{ pizza.name }}</div>
+                    <div class="pizza_price">цена: {{ pizza.price }} р.</div>
+                    <div class="pizza_price">количество: {{ count }}</div>
+                </div>    
+            </a>
+        {% endfor %}
+    </div>
+    <div class="total">стоимость: {{ total }}</div>
+    <form method="post" action="buy" class="buy_form">
+        {% csrf_token %}
+        <input placeholder="адрес" name="address" required>
+        <input placeholder="промокод" name="coupon" required>
+        <input type="submit" value="заказать">
+    </form>
+    
+    {% endblock content %}

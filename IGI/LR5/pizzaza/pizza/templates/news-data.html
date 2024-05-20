@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div style="display: flex; flex-direction: column; margin: 20px auto; width: 50%; text-align: center;">
+    {% for elem in data %}  
+    <div style="font-size: 30px;">
+        Заголовок: {{ elem.title }}
+    </div>
+    <div style="font-size: 18px;">{{ elem.date }}</div>
+    <div>
+        Тема: {{ elem.theme }}
+    </div>
+    <img src="{{ elem.image.url }}"/>
+    <div style="font-size: 20px;">
+        {{ elem.text }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

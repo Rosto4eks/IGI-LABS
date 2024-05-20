@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <a href="new-review">написать</a>
+    {% for elem in data %}  
+    <div>
+        От: {{ elem.customer.name }}
+    </div>
+    <div>
+        {{ elem.rate }} / 5
+    </div>
+    <div>
+        {{ elem.text }}
+    </div>
+    <div>
+        {{ elem.date }}
+    </div>
+    {% if elem.customer.id == id %}
+        <a href="delete-review?id={{ elem.id }}">удалить</a>
+    {% endif %}
+    <hr>
+    <br>
+    {% endfor %}
+    {% endblock content %}

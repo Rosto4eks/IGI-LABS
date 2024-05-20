@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    {{ error }}
+    <form method="post" action="new-review">
+        {% csrf_token %}
+        <p>Оценка:<br><input name="rate" type="number" maxlength="1" /></p>
+        <p>Текст:<br><input name="text" /></p>
+        <input type="submit" value="send">
+    </form>
+
+    {% endblock content %}

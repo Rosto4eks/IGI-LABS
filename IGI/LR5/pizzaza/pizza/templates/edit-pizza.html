@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <form method="post" action="edit-pizza">
+        {% csrf_token %}
+        <input value="{{ pizza.id }}" name="id"  hidden/>
+        <p>Name:<br><input value="{{ pizza.name }}" name="name" /></p>
+        <p>Ingredients:<br><input value="{{ pizza.ingredients }}" name="ingredients" /></p>
+        <p>Price:<br><input value="{{ pizza.price }}" name="price" /></p>
+        <p>Weight:<br><input value="{{ pizza.weight }}" name="weight" /></p>
+        <p>Size:<br><input value="{{ pizza.size }}" name="size" /></p>
+        <input type="submit" value="send">
+    </form>
+
+    <a href="delete-pizza?id={{ pizza.id }}">
+        delete 
+    </a>
+{% endblock content %}

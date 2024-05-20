@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <pre style="text-align: center;">
+        {{ calendar }}
+    </pre>
+    <pre style="font-size: 20px;">
+       {{ tz }} текущая дата: ({{ timezone }}) {{ date }} {{ time }}
+    </pre>
+
+    <div class="pizzas">
+        {% for order in orders %}
+            <div class="pizza">
+                <div class="pizza_data">
+                    <div class="pizza_price">{{ order.address }}</div>
+                    <div class="pizza_price">{{ order.date }}</div>
+                    <div class="pizza_price">{{ order.employee.name }}</div>
+                    <div class="pizza_price">{{ order.employee.email }}</div>
+                    <div class="pizza_price">{{ order.employee.phone_number }}</div>
+                    <div class="pizza_price">{{ order.status }}</div>
+                    <div class="pizza_price">{{ order.total }} р.</div>
+                </div>    
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}

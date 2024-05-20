@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+    {% for elem in data %}  
+    <a style="display: flex; font-size: 30px; flex-direction: column; text-align: center; max-width: 30%; margin: 100px auto; text-decoration: none; color: black;" href="news?id={{ elem.id }}">
+        <div>{{ elem.title }}</div>
+        <div style="font-size: 18px;">{{ elem.date }}</div>
+        <img src="{{ elem.image.url }}"/>
+        <div style="font-size: 18px;">{{ elem.text|slice:"0:40" }}...</div>
+    </a>
+    {% endfor %}
+    {% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <form method="post" action="sign-up">
+        {% csrf_token %}
+        {{ error }}
+        <p>имя:<br><input name="name" required/></p>
+        <p>почта:<br><input name="email" type="email" required/></p>
+        <p>пароль:<br><input name="password" type="password" required/></p>
+        <p>номер телефона:<br><input name="phone_number" type="number" required/></p>
+        <p>возраст:<br><input name="age" type="date" required/></p>
+        <input type="submit" value="send">
+    </form>
+    {{ fact.setup }}
+    {{ fact.punchline }}
+    {% endblock content %}

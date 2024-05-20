@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% for elem in data %}  
+<div style="margin: 30px auto; display: flex; flex-direction: column;">
+    <div style="font-size: 22px;">{{ elem.number }}</div>
+    <div style="font-size: 18px;">до {{ elem.deadline }}</div>
+    <div>{{ elem.discount }}</div>
+</div>
+{% endfor %}
+    {% endblock content %}

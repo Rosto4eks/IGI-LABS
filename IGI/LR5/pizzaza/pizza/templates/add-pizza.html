@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <form method="post" action="add-pizza">
+        {% csrf_token %}
+        <p>Name:<br><input name="name" /></p>
+        <p>Ingredients:<br><input name="ingredients" /></p>
+        <p>Price:<br><input name="price" /></p>
+        <p>Weight:<br><input name="weight" /></p>
+        <p>Size:<br><input name="size" /></p>
+        <input type="submit" value="send">
+    </form>
+{% endblock content %}

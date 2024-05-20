@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title></title>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+              <li>
+                <a href="#">Меню</a>
+                <ul>
+                  <li><a href="/">Главная</a></li>
+                  <li><a href="/about">О компании</a></li>
+                  <li><a href="/news">Новости</a></li>
+                  <li><a href="/faq">Вопросы и ответы</a></li>
+                  <li><a href="/contacts">Контакты</a></li>
+                  <li><a href="/vacancies">Вакансии</a></li>
+                  <li><a href="/reviews">Отзывы</a></li>
+                  <li><a href="/coupons">Промокоды</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          
+        <a href="/cart">корзина</a>
+        <a href="/profile">профиль</a>
+        <a href="/sign-in">войти</a>
+    </div>
+    <div>{% block content%}{% endblock content %}</div>
+</body>
+</html>

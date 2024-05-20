@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div style="display: flex; flex-direction: column;">
+    <img style="height: 800px; width: 1000px;" src="{% static 'images/users.png' %}">
+    <img style="height: 800px; width: 1000px;" src="{% static 'images/totals.png' %}">
+    <div style="display: flex; flex-direction: column; margin: 20px;">
+        <p style="font-size: 22px;">среднее по возрасту: {{ age_mean }}</p>
+        <p style="font-size: 22px;">мода по возрасту: {{ age_mode }}</p>
+        <p style="font-size: 22px;">среднее по стоимости заказа: {{ total_mean }}</p>
+        <p style="font-size: 22px;">медиана по стоимости заказа: {{ total_median }}</p>
+        <p style="font-size: 22px;">мода по стоимости заказа: {{ total_mode }}</p>
+        <p style="font-size: 22px;">самая популярная пицца: {{ popular.name}}</p>
+    </div>
+    
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="header">
+        <a href="/about">about</a>
+        <a href="/news">news</a>
+        <a href="/faq">faq</a>
+        <a href="/contacts">contacts</a>
+        <a href="/policy">policy</a>
+        <a href="/vacancies">vacancies</a>
+        <a href="/reviews">reviews</a>
+        <a href="/promo">promo</a>
+    </div>
+    <div class="pizzas">
+        {% for order in orders %}
+            <a class="pizza" href="complete-order?id={{ order.id }}">
+                <div class="pizza_data">
+                    <div class="pizza_price">{{ order.address }}</div>
+                    <div class="pizza_price">{{ order.date }}</div>
+                    <div class="pizza_price">{{ order.customer.name }}</div>
+                    <div class="pizza_price">{{ order.customer.email }}</div>
+                    <div class="pizza_price">{{ order.customer.phone_number }}</div>
+                </div>    
+            </a>
+        {% endfor %}
+    </div>
+    {% endblock content %}

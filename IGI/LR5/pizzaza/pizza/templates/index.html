@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="search">
+    </div>
+    <form method="post" action="search" class="search">
+        {% csrf_token %}
+        <a href="/?price-sort=true">сортировать по цене</a>
+        <input placeholder="состав..." name="name">
+        <input type="submit" value="поиск">
+    </form>
+    <div class="pizzas">
+        {% for pizza in pizzas %}
+            {% if role == 'admin' %}
+            <a class="pizza"  href="edit-pizza?id={{ pizza.id }}">
+            {% elif role == 'user' %}
+            <a class="pizza"  href="add-to-cart?id={{ pizza.id }}">
+            {% else %}
+            <a class="pizza">
+            {% endif %}
+                <div class="pizza_image">
+                    <img class="pizza_image_src"  src="{% static 'images/pizza.png' %}">
+                </div>
+                <div class="pizza_data">
+                    <div class="pizza_name">{{ pizza.name }}</div>
+                    <div class="pizza_ingredients">состав: {{ pizza.ingredients }}</div>
+                    <div class="pizza_weight">вес: {{ pizza.weight }} гр.</div>
+                    <div class="pizza_size">размер: {{ pizza.size }} см</div>
+                    <div class="pizza_price">{{ pizza.price }} руб</div>
+                </div>    
+            </a>
+        {% endfor %}
+    </div>
+    {% endblock content %}

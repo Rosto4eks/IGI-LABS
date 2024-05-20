@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% for elem in data %}  
+<div style="display: flex; font-size: 30px; flex-direction: column; text-align: center; max-width: 30%; margin: 100px auto; text-decoration: none; color: black;">
+    <div>{{ elem.name }}</div>
+    <img src="{{ elem.image.url }}"/>
+    <div style="font-size: 18px;">{{ elem.email }}</div>
+    <div style="font-size: 18px;">{{ elem.phone_number }}</div>
+    {% for v in elem.vacancies %}
+        <div style="font-size: 18px;">{{ v.name }}</div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% for elem in data %}  
+<div style="margin: 18px auto; display: flex; flex-direction: column;">
+    <div style="font-size: 22px;">{{ elem.name }}</div>
+    <div style="font-size: 20px;">{{ elem.salary }} $</div>
+    <div>{{ elem.info.info }}</div>
+</div>
+{% endfor %}
+{% endblock content %}
